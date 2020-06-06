@@ -1,9 +1,9 @@
 'use strict';
 
-var WIZARDS_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var WIZARDS_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+var wizardsNames = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
+var wizardsSurnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 var OBJECT_AMOUNT = 4;
 var similarWizardList = document.querySelector('.setup-similar-list');
 
@@ -34,19 +34,19 @@ var createWizards = function (quantity, names, surnames, coats, eyes) {
   return wizards;
 };
 
-var wizardsData = createWizards(OBJECT_AMOUNT, WIZARDS_NAMES, WIZARDS_SURNAMES, COAT_COLORS, EYES_COLORS);
+var wizardsData = createWizards(OBJECT_AMOUNT, wizardsNames, wizardsSurnames, coatColors, eyesColors);
 
 var createWizardsElements = function (data) {
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-  var wizardsTemplates = [];
+  var wizardsElements = [];
   for (var i = 0; i < data.length; i++) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
     wizardElement.querySelector('.setup-similar-label').textContent = data[i].name;
     wizardElement.querySelector('.wizard-coat').style.fill = data[i].coatColor;
     wizardElement.querySelector('.wizard-eyes').style.fill = data[i].eyesColor;
-    wizardsTemplates.push(wizardElement);
+    wizardsElements.push(wizardElement);
   }
-  return wizardsTemplates;
+  return wizardsElements;
 };
 
 var wizardElements = createWizardsElements(wizardsData);
