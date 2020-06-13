@@ -36,20 +36,17 @@ var createWizards = function (quantity, names, surnames, coats, eyes) {
 
 var wizardsData = createWizards(OBJECT_AMOUNT, wizardsNames, wizardsSurnames, coatColors, eyesColors);
 
-var createWizardsElements = function (data) {
+var createWizardElement = function (data) {
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-  var wizardsElements = [];
-  for (var i = 0; i < data.length; i++) {
-    var wizardElement = similarWizardTemplate.cloneNode(true);
-    wizardElement.querySelector('.setup-similar-label').textContent = data[i].name;
-    wizardElement.querySelector('.wizard-coat').style.fill = data[i].coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = data[i].eyesColor;
-    wizardsElements.push(wizardElement);
-  }
-  return wizardsElements;
+  var wizardElement = similarWizardTemplate.cloneNode(true);
+  wizardElement.querySelector('.setup-similar-label').textContent = data.name;
+  wizardElement.querySelector('.wizard-coat').style.fill = data.coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = data.eyesColor;
+  return wizardElement;
 };
 
-var wizardElements = createWizardsElements(wizardsData);
+var wizardsElements = wizardsData.map(createWizardElement);
+
 
 var renderWizards = function (elements, place) {
   var fragment = document.createDocumentFragment();
@@ -59,5 +56,5 @@ var renderWizards = function (elements, place) {
   place.appendChild(fragment);
 };
 
-renderWizards(wizardElements, similarWizardList);
+renderWizards(wizardsElements, similarWizardList);
 document.querySelector('.setup-similar').classList.remove('hidden');
