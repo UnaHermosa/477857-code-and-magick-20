@@ -7,6 +7,10 @@ var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 var OBJECT_AMOUNT = 4;
 var similarWizardList = document.querySelector('.setup-similar-list');
 var fireballsColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var KeyCode = {
+  ENTER: 13,
+  ESCAPE: 27
+};
 
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
@@ -47,20 +51,20 @@ function closePopup() {
 
 function onPopupEscPress(evt) {
   evt.preventDefault();
-  if (evt.keyCode === 27) {
+  if (evt.keyCode === KeyCode.ESCAPE) {
     closePopup();
   }
 }
 
 function onSetupCloseEnterPress(evt) {
   evt.preventDefault();
-  if (evt.keyCode === 13) {
+  if (evt.keyCode === KeyCode.ENTER) {
     closePopup();
   }
 }
 
 function onSetupSubmitPressEnter(evt) {
-  if (evt.keyCode === 13) {
+  if (evt.keyCode === KeyCode.ENTER) {
     document.querySelector('.setup-wizard-form').submit();
   }
 }
@@ -100,7 +104,7 @@ setupClose.addEventListener('click', function () {
 });
 
 setupOpenIcon.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13) {
+  if (evt.keyCode === KeyCode.ENTER) {
     openPopup();
   }
 });
