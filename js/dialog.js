@@ -1,5 +1,8 @@
 'use strict';
 (function () {
+  var DEFAULT_WINDOW_POSITION_X = '50%';
+  var DEFAULT_WINDOW_POSITION_Y = '80px';
+
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = document.querySelector('.setup-close');
@@ -35,6 +38,8 @@
     wizardEyes.addEventListener('click', window.createWizard.onwizardEyesClick);
     setupFireball.addEventListener('click', window.createWizard.onSetupFireballClick);
     setupSubmit.addEventListener('keydown', onSetupSubmitPressEnter);
+    setup.style.left = DEFAULT_WINDOW_POSITION_X;
+    setup.style.top = DEFAULT_WINDOW_POSITION_Y;
   }
 
   function closePopup() {
