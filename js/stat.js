@@ -31,9 +31,9 @@
     ctx.fillRect(positionX + GAP, positionY + GAP, CLOUD_WIDTH, CLOUD_HEIGHT);
     ctx.fillStyle = CLOUD_COLOR;
     ctx.fillRect(positionX, positionY, CLOUD_WIDTH, CLOUD_HEIGHT);
-    for (var i = 0; i < CLOUD_GREETINGS.length; i++) {
-      renderText(ctx, CLOUD_GREETINGS[i], CLOUD_X + GAP * IDENTATION_INDEX, CLOUD_Y + GAP * IDENTATION_INDEX + CLOUD_FONT_SIZE * i);
-    }
+    CLOUD_GREETINGS.forEach(function (item, i) {
+      renderText(ctx, item, CLOUD_X + GAP * IDENTATION_INDEX, CLOUD_Y + GAP * IDENTATION_INDEX + CLOUD_FONT_SIZE * i);
+    });
   };
 
   var getRandom = function (number) {
